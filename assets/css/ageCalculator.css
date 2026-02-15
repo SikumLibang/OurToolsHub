@@ -1,0 +1,299 @@
+/* =========================================
+   AGE CALCULATOR MAIN LAYOUT
+   Fully Separated Main Styling
+========================================= */
+
+/* ===== MAIN WRAPPER ===== */
+
+.tool-wrapper {
+  width: 92%;
+  max-width: 1300px;
+  margin: 60px auto 80px;
+}
+
+/* ===== PAGE HEADER ===== */
+
+.page-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.page-header h1 {
+  font-size: 34px;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 15px;
+}
+
+.short-desc {
+  max-width: 750px;
+  margin: 0 auto;
+  color: #64748b;
+  line-height: 1.7;
+  font-size: 16px;
+}
+
+/* ===== MAIN FLEX LAYOUT ===== */
+
+.main-layout {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+/* =========================================
+   TOOL CARD
+========================================= */
+
+.age-card {
+  flex: 3;
+  background: #ffffff;
+  padding: 35px;
+  border-radius: 18px;
+  box-shadow: 0 20px 45px rgba(0,0,0,0.06);
+  transition: 0.3s ease;
+}
+
+.age-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 30px 60px rgba(0,0,0,0.08);
+}
+
+/* Input Group */
+
+.input-group {
+  margin-bottom: 22px;
+}
+
+.input-group label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #1e293b;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 14px;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  font-size: 15px;
+  transition: 0.25s ease;
+}
+
+.input-group input:focus {
+  border-color: #4f46e5;
+  box-shadow: 0 0 0 3px rgba(79,70,229,0.1);
+  outline: none;
+}
+
+/* Button */
+
+.primary-btn {
+  width: 100%;
+  padding: 15px;
+  background: linear-gradient(135deg,#4f46e5,#3730a3);
+  border: none;
+  color: #ffffff;
+  border-radius: 12px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: 0.3s ease;
+}
+
+.primary-btn:hover {
+  transform: translateY(-2px);
+  opacity: 0.95;
+}
+
+/* Result Box */
+
+.result-box {
+  margin-top: 28px;
+  padding: 22px;
+  background: #f8fafc;
+  border-radius: 14px;
+  text-align: center;
+  border: 1px solid #e2e8f0;
+}
+
+.result-box h3 {
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.result-box p {
+  font-size: 20px;
+  font-weight: 700;
+  color: #4f46e5;
+}
+
+/* =========================================
+   RELATED TOOLS SIDEBAR
+========================================= */
+
+.related-tools {
+  flex: 1;
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 18px;
+  height: fit-content;
+  box-shadow: 0 20px 45px rgba(0,0,0,0.05);
+  position: sticky;
+  top: 120px;
+}
+
+.related-tools h2 {
+  margin-bottom: 18px;
+  font-size: 20px;
+}
+
+.related-tools ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.related-tools li {
+  margin-bottom: 12px;
+}
+
+.related-tools a {
+  text-decoration: none;
+  color: #4f46e5;
+  font-weight: 500;
+  transition: 0.2s ease;
+}
+
+.related-tools a:hover {
+  color: #3730a3;
+}
+
+/* =========================================
+   CONTENT SECTION
+========================================= */
+
+.content-section {
+  margin-top: 80px;
+}
+
+.content-section h2 {
+  margin-bottom: 15px;
+  font-size: 26px;
+  color: #0f172a;
+}
+
+.content-section p {
+  color: #475569;
+  line-height: 1.8;
+  margin-bottom: 18px;
+  font-size: 16px;
+}
+
+/* =========================================
+   RESPONSIVE BREAKPOINTS
+========================================= */
+
+/* --------- Large Desktop (1200px+) --------- */
+
+@media (min-width: 1200px) {
+
+  .tool-wrapper {
+    max-width: 1400px;
+  }
+
+  .result-box p {
+    font-size: 22px;
+  }
+}
+
+/* --------- 992px to 1199px --------- */
+
+@media (max-width: 1199px) and (min-width: 992px) {
+
+  .main-layout {
+    gap: 30px;
+  }
+
+  .age-card {
+    padding: 30px;
+  }
+  
+}
+
+/* --------- 860px to 991px --------- */
+
+@media (max-width: 991px) and (min-width: 860px) {
+
+  .main-layout {
+    flex-direction: column;
+  }
+
+  .related-tools {
+    position: static;
+    width: 100%;
+    margin-top: 30px;
+  }
+
+  .age-card {
+    width: 100%;
+  }
+}
+
+/* --------- Below 860px --------- */
+
+@media (max-width: 859px) {
+
+  .tool-wrapper {
+    width: 95%;
+  }
+
+  .page-header h1 {
+    font-size: 26px;
+  }
+
+  .short-desc {
+    font-size: 14px;
+  }
+
+  .main-layout {
+    flex-direction: column;
+  }
+
+  .age-card {
+    padding: 24px;
+    width: 100%;
+  }
+
+  .related-tools {
+    position: static;
+    margin-top: 25px;
+    width: 100%;
+  }
+
+  .result-box p {
+    font-size: 17px;
+  }
+}
+
+/* --------- Small Mobile (600px) --------- */
+
+@media (max-width: 600px) {
+
+  .page-header h1 {
+    font-size: 22px;
+  }
+
+  .age-card {
+    padding: 18px;
+  }
+
+  .primary-btn {
+    font-size: 14px;
+  }
+
+  .result-box {
+    padding: 16px;
+  }
+}

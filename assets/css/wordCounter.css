@@ -1,0 +1,262 @@
+/* =========================================
+   WORD COUNTER PAGE STYLING
+   Premium SaaS Split Layout
+========================================= */
+
+/* ===== Page Wrapper ===== */
+.word-counter-wrapper {
+  display: grid;
+  grid-template-columns: 2.2fr 1fr;
+  gap: 50px;
+  max-width: 1350px;
+  margin: 70px auto;
+  padding: 0 25px;
+}
+
+/* ===== Left Section (Editor) ===== */
+.editor-section h1 {
+  font-size: 34px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #0f172a;
+}
+
+.tool-subtitle {
+  font-size: 16px;
+  color: #64748b;
+  margin-bottom: 25px;
+}
+
+/* ===== Textarea Premium ===== */
+#textInput {
+  width: 100%;
+  min-height: 520px;
+  border-radius: 18px;
+  border: 1px solid #e2e8f0;
+  padding: 22px;
+  font-size: 16px;
+  line-height: 1.7;
+  resize: none;
+  outline: none;
+  background: #ffffff;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+}
+
+#textInput:focus {
+  border-color: #4f46e5;
+  box-shadow: 0 0 0 4px rgba(79,70,229,0.08);
+}
+
+/* ===== Right Section (Result Panel) ===== */
+.result-section {
+  position: relative;
+}
+
+.result-card {
+  position: sticky;
+  top: 110px;
+  background: #ffffff;
+  padding: 28px;
+  border-radius: 20px;
+  box-shadow: 0 25px 50px rgba(0,0,0,0.07);
+  transition: all 0.3s ease;
+}
+
+.result-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 30px 60px rgba(0,0,0,0.10);
+}
+
+.result-card h2 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #1e293b;
+}
+
+/* ===== Result Items ===== */
+.result-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 0;
+  border-bottom: 1px solid #f1f5f9;
+  transition: all 0.2s ease;
+}
+
+.result-item:last-child {
+  border-bottom: none;
+}
+
+.result-item span {
+  font-size: 15px;
+  color: #64748b;
+}
+
+.result-item strong {
+  font-size: 19px;
+  font-weight: 600;
+  color: #4f46e5;
+  transition: all 0.2s ease;
+}
+
+/* Highlight Reading Time */
+.result-item.highlight strong {
+  font-size: 22px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+/* Small animation effect */
+.result-item strong {
+  animation: fadeInUp 0.3s ease;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================================
+   CONTENT SECTIONS BELOW TOOL
+========================================= */
+
+.content-section {
+  max-width: 1100px;
+  margin: 80px auto;
+  padding: 0 25px;
+}
+
+.content-section h2 {
+  font-size: 26px;
+  margin-bottom: 15px;
+  color: #0f172a;
+}
+
+.content-section p {
+  color: #475569;
+  line-height: 1.8;
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+
+.content-section ul {
+  margin-left: 18px;
+  color: #475569;
+  line-height: 1.8;
+}
+
+.content-section li {
+  margin-bottom: 8px;
+}
+
+/* =========================================
+   FAQ SECTION
+========================================= */
+
+.faq-section .faq-item {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 16px;
+  margin-bottom: 20px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+  transition: 0.3s ease;
+}
+
+.faq-section .faq-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+}
+
+.faq-section h3 {
+  font-size: 17px;
+  margin-bottom: 8px;
+  color: #111827;
+}
+
+.faq-section p {
+  font-size: 15px;
+  color: #64748b;
+}
+
+/* =========================================
+   RELATED TOOLS
+========================================= */
+
+.related-tools {
+  max-width: 1100px;
+  margin: 80px auto;
+  padding: 0 25px;
+}
+
+.related-tools h2 {
+  font-size: 26px;
+  margin-bottom: 25px;
+}
+
+.related-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 20px;
+}
+
+.related-grid a {
+  display: block;
+  background: #ffffff;
+  padding: 18px;
+  border-radius: 16px;
+  text-decoration: none;
+  color: #1e293b;
+  font-weight: 500;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+}
+
+.related-grid a:hover {
+  transform: translateY(-4px);
+  border-color: #4f46e5;
+  box-shadow: 0 25px 50px rgba(79,70,229,0.15);
+  color: #4f46e5;
+}
+
+/* =========================================
+   RESPONSIVE DESIGN
+========================================= */
+
+@media (max-width: 1024px) {
+  .word-counter-wrapper {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .result-card {
+    position: static;
+  }
+
+  #textInput {
+    min-height: 420px;
+  }
+}
+
+@media (max-width: 600px) {
+  .editor-section h1 {
+    font-size: 26px;
+  }
+
+  .content-section h2,
+  .related-tools h2 {
+    font-size: 22px;
+  }
+
+  #textInput {
+    min-height: 350px;
+  }
+}

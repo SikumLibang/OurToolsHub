@@ -1,0 +1,419 @@
+.emi-page {
+  padding: 70px 20px;
+  background: #f6f8fc;
+}
+
+.emi-layout {
+  display: grid;
+  grid-template-columns: 2.5fr 1fr;
+  gap: 50px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* HEADER */
+.tool-header {
+  margin-bottom: 40px;
+}
+
+.tool-header h1 {
+  font-size: 2.6rem;
+  margin-bottom: 15px;
+}
+
+.tool-header p {
+  color: #555;
+  line-height: 1.7;
+}
+
+/* CALCULATOR CARD */
+.calculator-card {
+  background: #fff;
+  padding: 40px;
+  border-radius: 18px;
+  box-shadow: 0 15px 50px rgba(0,0,0,0.06);
+  margin-bottom: 50px;
+}
+
+.calculator-card h2 {
+  margin-bottom: 30px;
+}
+
+/* FORM */
+.form-group {
+  margin-bottom: 25px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 14px;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+.form-group input:focus {
+  border-color: #5b5bf7;
+  box-shadow: 0 0 0 3px rgba(91,91,247,0.1);
+  outline: none;
+}
+
+/* ERROR MESSAGE */
+.error {
+  color: #e63946;
+  font-size: 14px;
+  margin-top: 5px;
+  display: block;
+}
+
+/* BUTTONS */
+.btn-primary {
+  width: 100%;
+  padding: 14px;
+  border-radius: 12px;
+  border: none;
+  background: linear-gradient(135deg,#5b5bf7,#3737ff);
+  color: #fff;
+  font-size: 16px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  opacity: 0.9;
+}
+
+.btn-secondary {
+  width: 100%;
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+  background: #f1f3f9;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+/* RESULT */
+.result-box {
+  margin-top: 40px;
+  padding: 25px;
+  background: #f1f4ff;
+  border-radius: 14px;
+  display: none;
+}
+
+.result-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 18px;
+  font-size: 18px;
+}
+
+/* CONTENT */
+.content-section {
+  background: #fff;
+  padding: 40px;
+  border-radius: 18px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+  line-height: 1.8;
+}
+
+.content-section h2 {
+  margin-top: 30px;
+  margin-bottom: 15px;
+}
+
+.formula-box {
+  background: #eef2ff;
+  padding: 15px;
+  border-radius: 10px;
+  margin: 20px 0;
+  text-align: center;
+  font-weight: bold;
+}
+
+/* SIDEBAR */
+.emi-sidebar {
+  position: sticky;
+  top: 100px;
+  height: fit-content;
+}
+
+.related-card {
+  background: #fff;
+  padding: 30px;
+  border-radius: 18px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+}
+
+.related-card h3 {
+  margin-bottom: 20px;
+}
+
+.related-card ul {
+  list-style: none;
+  padding: 0;
+}
+
+.related-card li {
+  margin-bottom: 12px;
+}
+
+.related-card a {
+  text-decoration: none;
+  color: #5b5bf7;
+  font-weight: 500;
+}
+
+.related-card a:hover {
+  text-decoration: underline;
+}
+
+/* RESPONSIVE */
+/* @media(max-width: 992px){
+  .emi-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .emi-sidebar {
+    position: relative;
+  }
+} */
+
+/* =========================================
+   GLOBAL IMPROVEMENTS
+========================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+.emi-page {
+  padding: 60px 20px;
+}
+
+.emi-layout {
+  display: grid;
+  grid-template-columns: 2.5fr 1fr;
+  gap: 40px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* Prevent overflow issues */
+.calculator-card,
+.content-section,
+.related-card {
+  width: 100%;
+}
+
+/* =========================================
+   LARGE SCREENS (1400px+)
+========================================= */
+@media (min-width: 1400px) {
+  .emi-layout {
+    max-width: 1350px;
+    gap: 60px;
+  }
+
+  .tool-header h1 {
+    font-size: 3rem;
+  }
+}
+
+/* =========================================
+   LAPTOP (992px - 1200px)
+========================================= */
+@media (max-width: 1200px) {
+  .emi-layout {
+    gap: 30px;
+  }
+
+  .calculator-card,
+  .content-section {
+    padding: 30px;
+  }
+}
+/* =========================================
+   TABLET & MOBILE (992px and below)
+   Single column + Proper order
+========================================= */
+@media (max-width: 992px) {
+
+  /* 1️⃣ Make full layout single column */
+  .emi-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  /* 2️⃣ Order elements properly */
+  .emi-main {
+    display: contents;
+  }
+
+  .calculator-card {
+    order: 1;
+  }
+
+  .emi-sidebar {
+    order: 2;
+    position: relative;
+    top: 0;
+    margin-top: 10px;
+  }
+
+  .content-section {
+    order: 3;
+    margin-top: 10px;
+  }
+
+  /* 3️⃣ Adjust spacing & typography */
+  .tool-header h1 {
+    font-size: 2.2rem;
+  }
+
+  .calculator-card {
+    padding: 28px;
+  }
+
+  .content-section {
+    padding: 28px;
+  }
+
+  .result-row {
+    font-size: 16px;
+  }
+}
+
+/* =========================================
+   MOBILE LARGE (576px - 768px)
+========================================= */
+@media (max-width: 768px) {
+
+  .emi-page {
+    padding: 40px 15px;
+  }
+
+  .tool-header h1 {
+    font-size: 1.9rem;
+  }
+
+  .tool-header p {
+    font-size: 15px;
+  }
+
+  .calculator-card {
+    padding: 22px;
+  }
+
+  .form-group input {
+    padding: 12px;
+    font-size: 15px;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    font-size: 15px;
+    padding: 12px;
+  }
+
+  .result-box {
+    padding: 18px;
+  }
+
+  .result-row {
+    font-size: 15px;
+  }
+
+  .content-section {
+    padding: 22px;
+  }
+
+  .formula-box {
+    font-size: 14px;
+  }
+
+  .related-card {
+    padding: 22px;
+  }
+}
+
+/* =========================================
+   SMALL MOBILE (Below 480px)
+========================================= */
+@media (max-width: 480px) {
+
+  .tool-header h1 {
+    font-size: 1.6rem;
+  }
+
+  .calculator-card {
+    padding: 18px;
+    border-radius: 14px;
+  }
+
+  .content-section {
+    padding: 18px;
+    border-radius: 14px;
+  }
+
+  .related-card {
+    padding: 18px;
+    border-radius: 14px;
+  }
+
+  .form-group {
+    margin-bottom: 18px;
+  }
+
+  .result-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+  }
+
+  .result-row strong {
+    font-size: 16px;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    font-size: 14px;
+  }
+}
+
+/* =========================================
+   EXTRA SMALL DEVICES (360px and below)
+========================================= */
+@media (max-width: 360px) {
+
+  .emi-page {
+    padding: 30px 10px;
+  }
+
+  .tool-header h1 {
+    font-size: 1.4rem;
+  }
+
+  .calculator-card,
+  .content-section,
+  .related-card {
+    padding: 15px;
+  }
+
+  .form-group input {
+    font-size: 14px;
+  }
+
+  .result-row strong {
+    font-size: 15px;
+  }
+}

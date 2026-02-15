@@ -1,0 +1,522 @@
+/* ================= BMI CALCULATION CARD ================= */
+.bmi-card {
+  background: #ffffff;
+  padding: 35px 30px;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  max-width: 100%;       /* Make it responsive */
+  width: 100%;           /* Fit parent container */
+  transition: transform 0.3s;
+}
+
+.bmi-card:hover {
+  transform: translateY(-5px);
+}
+
+/* ================= LAYOUT: CALCULATOR + SIDEBAR ================= */
+.bmi-layout {
+  display: grid;
+  grid-template-columns: 1fr auto; /* Sidebar only takes needed width */
+  gap: 30px;
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 0 20px;
+  align-items: start; /* Prevent stretching */
+}
+
+
+/* ================= UNIT TOGGLE BUTTONS ================= */
+.unit-toggle {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 25px;
+  gap: 10px;
+}
+
+.unit-toggle .toggle {
+  flex: 1;
+  padding: 12px 0;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+  background: #f1f3f9;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-size: 14px;
+}
+
+.unit-toggle .toggle.active {
+  background: linear-gradient(135deg, #5b5bf7, #3737ff);
+  color: #fff;
+  border: none;
+}
+
+/* ================= INPUT GROUPS ================= */
+.input-group {
+  margin-bottom: 18px;
+}
+
+.input-group label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #333;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+  font-size: 15px;
+  transition: all 0.3s;
+}
+
+.input-group input:focus {
+  border-color: #5b5bf7;
+  box-shadow: 0 0 0 3px rgba(91,91,247,0.15);
+  outline: none;
+}
+
+/* ================= BUTTONS ================= */
+.button-group {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.button-group .btn-primary {
+  flex: 2;
+  padding: 14px;
+  border-radius: 12px;
+  border: none;
+  background: linear-gradient(135deg, #5b5bf7, #3737ff);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.button-group .btn-primary:hover {
+  opacity: 0.95;
+  transform: translateY(-2px);
+}
+
+.button-group .btn-secondary {
+  flex: 1;
+  padding: 14px;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+  background: #f1f3f9;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.button-group .btn-secondary:hover {
+  background: #e2e6f0;
+  transform: translateY(-1px);
+}
+
+/* ================= RESULT SECTION ================= */
+.result-section {
+  margin-top: 25px;
+  padding: 25px;
+  background: linear-gradient(120deg, #eef2ff, #f6f8fc);
+  border-radius: 16px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  transition: all 0.3s;
+}
+
+.result-section h2 {
+  font-size: 1.7rem;
+  margin-bottom: 10px;
+  color: #5b5bf7;
+}
+
+.result-section p {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+/* ================= RESPONSIVE ================= */
+@media(max-width: 992px) {
+  .bmi-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .related-card {
+    position: relative;
+    top: 0;
+    margin-top: 25px;
+    max-width: 100%;
+  }
+}
+
+@media(max-width: 600px) {
+  .bmi-card {
+    padding: 25px;
+  }
+
+  .button-group {
+    flex-direction: column;
+  }
+
+  .button-group .btn-primary,
+  .button-group .btn-secondary {
+    flex: 1;
+  }
+
+  .content-section, .related-card {
+    padding: 20px;
+  }
+}
+
+/* ================= RESULT SECTION (PREMIUM ANIMATION) ================= */
+
+.hidden {
+  opacity: 0;
+  visibility: hidden;
+  height: 0;
+  overflow: hidden;
+}
+.indicator {
+  position: absolute;
+  top: -6px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #3737ff;
+  transition: left 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+
+.result-section {
+  margin-top: 25px;
+  padding: 30px;
+  background: linear-gradient(135deg, #eef2ff, #f8faff);
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 15px 40px rgba(91, 91, 247, 0.08);
+  position: relative;
+  overflow: hidden;
+
+  opacity: 0;
+  transform: translateY(20px);
+  transition: 
+    opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.result-section.show {
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+  height: auto;
+}
+
+
+/* Subtle animated glow background */
+.result-section::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(91,91,247,0.15) 0%, transparent 60%);
+  animation: glowMove 6s linear infinite;
+  z-index: 0;
+}
+
+@keyframes glowMove {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.result-section h2,
+.result-section p {
+  position: relative;
+  z-index: 1;
+}
+
+/* Animated BMI number */
+#bmiValue {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #3737ff;
+  display: inline-block;
+  transition: transform 0.4s ease;
+}
+
+#bmiValue.animate {
+  animation: pop 0.5s ease;
+}
+
+@keyframes pop {
+  0% { transform: scale(0.8); opacity: 0; }
+  60% { transform: scale(1.15); opacity: 1; }
+  100% { transform: scale(1); }
+}
+
+/* Category animation */
+#bmiCategory {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+#bmiCategory.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ================= BMI SCALE ================= */
+
+.bmi-scale {
+  position: relative;
+  height: 12px;
+  border-radius: 10px;
+  background: linear-gradient(
+    to right,
+    #4da3ff 0%,
+    #4da3ff 25%,
+    #4caf50 25%,
+    #4caf50 50%,
+    #ff9800 50%,
+    #ff9800 75%,
+    #f44336 75%,
+    #f44336 100%
+  );
+  margin-top: 20px;
+  overflow: hidden;
+}
+
+.indicator {
+  position: absolute;
+  top: -6px;
+  width: 20px;
+  height: 20px;
+  background: #3737ff;
+  border-radius: 50%;
+  box-shadow: 0 0 15px rgba(55,55,255,0.6);
+  transform: translateX(0);
+  transition: left 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* =========================================
+   GLOBAL SAFETY FIXES
+========================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+main.container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* Prevent layout overflow */
+.bmi-card,
+.content-section,
+.related-card {
+  width: 100%;
+}
+
+/* =========================================
+   LARGE DESKTOP (1400px+)
+========================================= */
+@media (min-width: 1400px) {
+
+  .bmi-layout {
+    max-width: 1300px;
+    gap: 50px;
+  }
+
+  .tool-header h1 {
+    font-size: 3rem;
+  }
+}
+
+/* =========================================
+   LAPTOP (1200px)
+========================================= */
+@media (max-width: 1200px) {
+
+  .bmi-layout {
+    gap: 25px;
+  }
+
+  .bmi-card {
+    padding: 30px;
+  }
+
+  .content-section {
+    padding: 30px;
+  }
+}
+
+/* =========================================
+   TABLET (992px and below)
+========================================= */
+@media (max-width: 992px) {
+
+  .bmi-layout {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .emi-sidebar {
+    position: relative;
+    top: 0;
+  }
+
+  .tool-header h1 {
+    font-size: 2.2rem;
+  }
+
+  .bmi-card {
+    padding: 28px;
+  }
+
+  .result-section {
+    padding: 25px;
+  }
+
+  .content-section {
+    padding: 28px;
+  }
+}
+
+/* =========================================
+   LARGE MOBILE (768px)
+========================================= */
+@media (max-width: 768px) {
+
+  main.container {
+    padding: 40px 15px !important;
+  }
+
+  .tool-header h1 {
+    font-size: 1.9rem;
+  }
+
+  .tool-header p {
+    font-size: 15px;
+  }
+
+  .bmi-card {
+    padding: 22px;
+    border-radius: 16px;
+  }
+
+  .unit-toggle {
+    flex-direction: column;
+  }
+
+  .unit-toggle .toggle {
+    font-size: 14px;
+  }
+
+  .button-group {
+    flex-direction: column;
+  }
+
+  .button-group .btn-primary,
+  .button-group .btn-secondary {
+    width: 100%;
+  }
+
+  .result-section h2 {
+    font-size: 1.5rem;
+  }
+
+  #bmiValue {
+    font-size: 1.8rem;
+  }
+
+  .content-section {
+    padding: 22px;
+  }
+
+  .related-card {
+    padding: 22px;
+  }
+}
+
+/* =========================================
+   SMALL MOBILE (480px)
+========================================= */
+@media (max-width: 480px) {
+
+  .tool-header h1 {
+    font-size: 1.6rem;
+  }
+
+  .bmi-card {
+    padding: 18px;
+  }
+
+  .content-section {
+    padding: 18px;
+  }
+
+  .related-card {
+    padding: 18px;
+  }
+
+  .input-group input {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .result-section {
+    padding: 20px;
+  }
+
+  #bmiValue {
+    font-size: 1.6rem;
+  }
+
+  .bmi-scale {
+    height: 10px;
+  }
+
+  .indicator {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+/* =========================================
+   EXTRA SMALL DEVICES (360px)
+========================================= */
+@media (max-width: 360px) {
+
+  main.container {
+    padding: 30px 10px !important;
+  }
+
+  .tool-header h1 {
+    font-size: 1.4rem;
+  }
+
+  .bmi-card,
+  .content-section,
+  .related-card {
+    padding: 15px;
+  }
+
+  .input-group input {
+    font-size: 13px;
+  }
+
+  #bmiValue {
+    font-size: 1.4rem;
+  }
+}

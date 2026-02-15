@@ -1,0 +1,262 @@
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #f6f8fc;
+    margin: 0;
+    padding: 0;  /* ✅ remove padding */
+}
+
+/* Wrapper */
+
+ /* ===== MAIN WRAPPER WIDTH CONTROL ===== */
+
+.tool-wrapper {
+    width: 90%;
+    max-width: 1400px;
+    margin: 40px auto;   /* add spacing here instead */
+    padding: 20px 0;
+}
+/* Header Section */
+.page-header {
+    text-align: center;
+    margin-bottom: 40px;
+    margin-top: 10px;
+}
+
+.page-header h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.short-desc {
+    color: #666;
+    max-width: 750px;
+    margin: auto;
+    line-height: 1.6;
+}
+
+/* ===== TOOL CARD ===== */
+.tool-card {
+    flex: 3;
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+}
+
+textarea {
+    width: 100%;
+    min-height: 160px;
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+    resize: vertical;
+    transition: 0.3s;
+}
+
+/* ===== PREMIUM TEXTAREA ===== */
+#inputText {
+    width: 100%;
+    min-height: 180px;
+    max-height: 500px;
+    padding: 18px 20px;
+    font-size: 16px;
+    line-height: 1.6;
+    border-radius: 14px;
+    border: 1px solid #e2e8f0;
+    background: linear-gradient(145deg, #ffffff, #f8fafc);
+    box-shadow: inset 0 2px 6px rgba(0,0,0,0.04);
+    transition: all 0.25s ease;
+    resize: none; /* remove manual resize */
+    outline: none;
+    font-family: "Inter", "Segoe UI", sans-serif;
+}
+
+/* Focus Effect */
+#inputText:focus {
+    border-color: #3b82f6;
+    box-shadow: 
+        0 0 0 3px rgba(59,130,246,0.15),
+        inset 0 2px 6px rgba(0,0,0,0.04);
+    background: #ffffff;
+}
+
+/* Placeholder Style */
+#inputText::placeholder {
+    color: #94a3b8;
+    font-weight: 400;
+}
+
+#inputText {
+    backdrop-filter: blur(6px);
+}
+
+/* Buttons */
+.button-group {
+    margin-top: 25px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.button-group button {
+    flex: 1 1 140px;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #5b5bf7, #3737ff);
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.button-group button:hover {
+    transform: translateY(-2px);
+    opacity: 0.95;
+}
+
+.extra-buttons {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+.copy-btn {
+    background: #16a34a;
+}
+
+.clear-btn {
+    background: #dc2626;
+}
+
+.extra-buttons button {
+    padding: 8px 15px;
+    border-radius: 8px;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.extra-buttons button:hover {
+    opacity: 0.9;
+}
+
+/* Stats */
+.stats {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    color: #555;
+    font-size: 14px;
+}
+
+/* Content Sections */
+.content-section {
+    margin-bottom: 50px;
+    margin-top: 30px;
+}
+
+.content-section h2 {
+    margin-bottom: 15px;
+    margin-top: 10px;
+}
+
+.content-section ul {
+    padding-left: 20px;
+    line-height: 1.6;
+}
+
+/* Related Tools */
+.related-tools ul {
+    list-style: none;
+    padding: 0;
+}
+
+.content-section >p {
+    line-height: 25px;
+}
+
+/* ===== RELATED TOOLS ===== */
+.related-tools {
+    flex: 1;
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 12px;
+    height: fit-content;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+/* ===== Improve spacing inside ===== */
+.related-tools h2 {
+    margin-bottom: 15px;
+}
+
+.related-tools li {
+    margin-bottom: 12px;
+}
+
+.related-tools a {
+    color: #5b5bf7;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.related-tools a:hover {
+    text-decoration: underline;
+}
+
+ /* ===== MAIN LAYOUT ===== */
+.main-layout {
+    display: flex;
+    gap: 30px; /* more breathing space */
+    align-items: flex-start;
+}
+
+.tool-card {
+    flex: 3;
+}
+
+.related-tools {
+    flex: 1;
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 8px;
+    height: fit-content;
+}
+
+.related-tools ul {
+    list-style: none;
+    padding: 0;
+}
+
+.related-tools li {
+    margin-bottom: 10px;
+}
+
+.related-tools a {
+    text-decoration: none;
+    color: #0077cc;
+    font-weight: 500;
+}
+
+.related-tools a:hover {
+    text-decoration: underline;
+}
+
+.copy-message {
+    margin-top: 10px;
+    font-size: 14px;
+    color: green;
+}
+
+/* ===== Responsive Fix ===== */
+@media (max-width: 1024px) {
+    .tool-wrapper {
+        width: 95%;
+    }
+
+    .main-layout {
+        flex-direction: column;
+    }
+}
