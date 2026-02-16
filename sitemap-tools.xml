@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Calculators -->
+  <url>
+    <loc>https://raiaakriti.com.np/tools/bmi-calculator.html</loc>
+  </url>
+
+  <url>
+    <loc>https://raiaakriti.com.np/tools/age-calculator.html</loc>
+  </url>
+
+  <url>
+    <loc>https://raiaakriti.com.np/tools/emi-calculator.html</loc>
+  </url>
+
+  <url>
+    <loc>https://raiaakriti.com.np/tools/percentage-calculator.html</loc>
+  </url>
+
+  <url>
+    <loc>https://raiaakriti.com.np/tools/discount-calculator.html</loc>
+  </url>
+
+  <!-- Converters -->
+  <url>
+    <loc>https://raiaakriti.com.np/tools/binary-to-decimal.html</loc>
+  </url>
+
+  <url>
+    <loc>https://raiaakriti.com.np/tools/decimal-to-binary.html</loc>
+  </url>
+
+  <url>
+    <loc>https://raiaakriti.com.np/tools/temperature-converter.html</loc>
+  </url>
+
+  <url>
+    <loc>https://raiaakriti.com.np/tools/length-converter.html</loc>
+  </url>
+
+  <url>
+    <loc>https://raiaakriti.com.np/tools/weight-converter.html</loc>
+  </url>
+
+</urlset>
