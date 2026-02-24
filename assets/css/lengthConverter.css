@@ -1,0 +1,259 @@
+/* ==============================
+   LENGTH CONVERTER - MOBILE FIRST
+   ============================== */
+
+/* Wrapper */
+.converter-wrapper {
+  padding: 20px 15px 40px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+/* Card */
+.converter-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 24px 18px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  transition: 0.3s ease;
+}
+
+.converter-card:hover {
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+}
+
+.converter-card h1 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.tool-subtitle {
+  font-size: 14px;
+  color: #666;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+/* Converter Box */
+.converter-box {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* Input & Select Groups */
+.input-group,
+.select-group div {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-group label,
+.select-group label {
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #333;
+}
+
+input,
+select {
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid #e0e0e0;
+  font-size: 15px;
+  transition: all 0.2s ease;
+  background: #fafafa;
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  border-color: #4f46e5;
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+}
+
+/* Select Row */
+.select-group {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Convert Button */
+#convertBtn {
+  background: linear-gradient(135deg, #4f46e5, #6366f1);
+  color: white;
+  border: none;
+  padding: 14px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+#convertBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(79, 70, 229, 0.25);
+}
+
+/* Result Display */
+.result-display {
+  background: #f9fafb;
+  border-radius: 14px;
+  padding: 18px;
+  text-align: center;
+}
+
+.result-display h2 {
+  font-size: 15px;
+  font-weight: 600;
+  color: #555;
+  margin-bottom: 6px;
+}
+
+#resultOutput {
+  font-size: 22px;
+  font-weight: 700;
+  color: #111827;
+  word-break: break-all;
+}
+
+/* ==============================
+   RELATED TOOLS
+   ============================== */
+
+.related-tools {
+  padding: 40px 15px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.related-tools h2 {
+  text-align: center;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.related-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+.related-grid a {
+  background: #ffffff;
+  padding: 14px;
+  border-radius: 12px;
+  text-align: center;
+  text-decoration: none;
+  font-weight: 600;
+  color: #333;
+  border: 1px solid #f0f0f0;
+  transition: 0.3s ease;
+}
+
+.related-grid a:hover {
+  background: #4f46e5;
+  color: white;
+  transform: translateY(-3px);
+}
+
+/* ==============================
+   CONTENT SECTION
+   ============================== */
+
+.content-section {
+  max-width: 1100px;
+  margin: auto;
+  padding: 30px 15px 50px;
+  line-height: 1.7;
+  color: #444;
+}
+
+.content-section h2 {
+  font-size: 20px;
+  margin: 25px 0 10px;
+  font-weight: 700;
+  color: #111;
+}
+
+.content-section h3 {
+  font-size: 16px;
+  margin-top: 18px;
+  font-weight: 600;
+}
+
+.content-section ul {
+  padding-left: 18px;
+  margin-top: 10px;
+}
+
+.content-section ul li {
+  margin-bottom: 6px;
+}
+
+/* ==============================
+   TABLET (min-width: 768px)
+   ============================== */
+
+@media (min-width: 768px) {
+
+  .converter-card {
+    padding: 40px;
+  }
+
+  .converter-card h1 {
+    font-size: 30px;
+  }
+
+  .tool-subtitle {
+    font-size: 16px;
+  }
+
+  .select-group {
+    flex-direction: row;
+    gap: 20px;
+  }
+
+  .select-group div {
+    flex: 1;
+  }
+
+  .related-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  #resultOutput {
+    font-size: 26px;
+  }
+}
+
+/* ==============================
+   DESKTOP (min-width: 1024px)
+   ============================== */
+
+@media (min-width: 1024px) {
+
+  .converter-wrapper {
+    padding-top: 60px;
+  }
+
+  .converter-card {
+    max-width: 700px;
+    margin: auto;
+  }
+
+  .related-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .content-section {
+    padding: 60px 0;
+  }
+
+}

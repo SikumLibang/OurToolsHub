@@ -1,4 +1,18 @@
 User-agent: *
-Allow: /
 
+# Allow all important assets
+Allow: /assets/css/
+Allow: /assets/js/
+Allow: /assets/images/
+
+# Disallow system or unnecessary folders (if any in future)
+Disallow: /admin/
+Disallow: /private/
+Disallow: /temp/
+
+# Prevent indexing of duplicate or utility files
+Disallow: /*.json$
+Disallow: /*?*
+
+# Sitemap location
 Sitemap: https://raiaakriti.com.np/sitemap.xml

@@ -1,0 +1,219 @@
+/* =========================================
+   STATIC PAGES STYLE (Mobile First)
+   Matches Converter & Tool UI System
+========================================= */
+
+/* ===== Wrapper ===== */
+
+.static-wrapper {
+  padding: 30px 16px 60px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+/* ===== Card Layout (Same as Converter Card) ===== */
+
+.static-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 24px 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  transition: 0.3s ease;
+}
+
+.static-card:hover {
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+}
+
+/* ===== Titles ===== */
+
+.static-card h1 {
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  text-align: center;
+  color: #111827;
+}
+
+.static-card h2 {
+  font-size: 18px;
+  margin-top: 24px;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.static-card h3 {
+  font-size: 16px;
+  margin-top: 18px;
+  font-weight: 600;
+  color: #374151;
+}
+
+/* ===== Paragraphs ===== */
+
+.static-card p {
+  font-size: 15px;
+  line-height: 1.7;
+  color: #4b5563;
+  margin-bottom: 12px;
+}
+
+/* ===== Lists ===== */
+
+.static-card ul {
+  padding-left: 18px;
+  margin-top: 8px;
+}
+
+.static-card ul li {
+  margin-bottom: 6px;
+  font-size: 15px;
+  color: #4b5563;
+}
+
+/* ===== Links ===== */
+
+.static-card a {
+  color: #4f46e5;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.static-card a:hover {
+  text-decoration: underline;
+}
+
+/* =========================================
+   FAQ SECTION STYLE
+========================================= */
+
+.faq-item {
+  background: #f9fafb;
+  padding: 14px 16px;
+  border-radius: 12px;
+  margin-bottom: 12px;
+  transition: 0.3s ease;
+}
+
+.faq-item:hover {
+  background: #f3f4f6;
+}
+
+.faq-item h3 {
+  margin: 0 0 6px;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.faq-item p {
+  font-size: 14px;
+  margin: 0;
+}
+
+/* =========================================
+   COMING SOON PAGE
+========================================= */
+
+.coming-wrapper {
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 16px;
+}
+
+.coming-card {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 40px 25px;
+  text-align: center;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.07);
+  max-width: 500px;
+  width: 100%;
+  transition: 0.3s ease;
+}
+
+.coming-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.12);
+}
+
+.coming-card h1 {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 14px;
+  background: linear-gradient(135deg, #4f46e5, #6366f1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.coming-card p {
+  font-size: 15px;
+  color: #6b7280;
+  margin-bottom: 25px;
+}
+
+/* Premium Button */
+
+.primary-btn {
+  display: inline-block;
+  background: linear-gradient(135deg, #4f46e5, #6366f1);
+  color: #ffffff;
+  padding: 12px 22px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 14px;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+.primary-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(79, 70, 229, 0.25);
+}
+
+/* =========================================
+   TABLET BREAKPOINT
+========================================= */
+
+@media (min-width: 768px) {
+
+  .static-card {
+    padding: 40px;
+  }
+
+  .static-card h1 {
+    font-size: 32px;
+  }
+
+  .static-card h2 {
+    font-size: 20px;
+  }
+
+  .coming-card {
+    padding: 60px 40px;
+  }
+
+  .coming-card h1 {
+    font-size: 34px;
+  }
+
+}
+
+/* =========================================
+   DESKTOP BREAKPOINT
+========================================= */
+
+@media (min-width: 1024px) {
+
+  .static-wrapper {
+    padding-top: 60px;
+  }
+
+  .static-card {
+    max-width: 850px;
+    margin: auto;
+  }
+
+}

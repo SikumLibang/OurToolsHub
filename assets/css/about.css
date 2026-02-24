@@ -1,0 +1,170 @@
+/* =============================
+   ABOUT PAGE STYLES
+============================= */
+
+.about-wrapper {
+  padding: 30px 16px 60px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+/* Story Card */
+
+.about-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 30px 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  margin-bottom: 60px;
+}
+
+.about-card h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.about-card h2 {
+  margin-top: 25px;
+}
+
+.about-card p,
+.about-card ul li {
+  color: #4b5563;
+  line-height: 1.7;
+}
+
+/* =============================
+   TEAM SECTION
+============================= */
+
+.team-section {
+  text-align: center;
+}
+
+.team-section h2 {
+  margin-bottom: 10px;
+  font-size: 24px;
+}
+
+.team-section p {
+    font-size: 16px;
+    margin-bottom: 30px;
+
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+}
+
+.team-card {
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  transition: 0.4s ease;
+}
+
+.team-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+/* Circle Image */
+
+.team-img {
+  width: 130px;
+  height: 130px;
+  margin: 0 auto 15px;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+  transition: 0.4s ease;
+}
+
+.team-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: 0.5s ease;
+}
+
+/* Beautiful Hover Effect */
+
+.team-card:hover .team-img img {
+  transform: scale(1.1) rotate(3deg);
+}
+
+.team-card:hover .team-img {
+  box-shadow: 0 0 0 6px rgba(79,70,229,0.15);
+}
+
+/* Name & Role */
+
+.team-card h3 {
+  margin-bottom: 5px;
+}
+
+.team-card p {
+  color: #6b7280;
+  font-size: 14px;
+}
+
+/* Tablet */
+
+@media (min-width: 768px) {
+  .team-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Desktop */
+
+@media (min-width: 1024px) {
+  .team-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .about-card {
+    padding: 40px;
+  }
+}
+
+/* =============================
+   VISION & MISSION
+============================= */
+
+.vision-mission {
+  display: grid;
+  gap: 25px;
+  margin-top: 50px;
+}
+
+.vm-card {
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  transition: 0.3s ease;
+}
+
+.vm-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+}
+
+.vm-card h2 {
+  margin-bottom: 10px;
+}
+
+.vm-card p {
+  color: #4b5563;
+  line-height: 1.7;
+}
+
+@media (min-width: 768px) {
+  .vision-mission {
+    grid-template-columns: 1fr 1fr;
+  }
+}

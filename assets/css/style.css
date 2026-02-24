@@ -907,3 +907,7 @@ body {
 .nav-links.active .close-menu {
   display: block !important;
 }
+
+.category-grid a {
+  text-decoration: none;
+}
