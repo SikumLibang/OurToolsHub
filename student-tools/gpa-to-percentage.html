@@ -7,14 +7,16 @@
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5497470065110842"
      crossorigin="anonymous"></script>
 
-<title>GPA to Percentage Converter (4.0, 5.0, 10.0 Scale) | OurToolsHub</title>
+<title>GPA ↔ Percentage Converter Nepal | OurToolsHub</title>
 <meta name="description" content="Convert GPA to Percentage instantly. Supports 4.0, 5.0 and 10.0 GPA scales. Free and accurate GPA to Percentage calculator for students in Asia." />
 <meta name="keywords" content="GPA to percentage, convert GPA to percentage, GPA calculator, 4.0 GPA to percentage, 10 GPA to percentage" />
 
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="/assets/images/logo.ico" />
+<!-- Favicon -->
+<link rel="icon" type="image/x-icon" href="/assets/images/logo.ico" />
 <link rel="stylesheet" href="/assets/css/style.css">
 <link rel="stylesheet" href="/assets/css/gpaConverter.css">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
@@ -70,6 +72,7 @@
                 <h4>Converters</h4>
                 <a href="/unit-converters/length-converter.html">Length Converter</a>
                 <a href="/unit-converters/land-converter.html">Nepali Land Converter</a>
+                <a href="/unit-converters/weight-converter.html">Weight Converter</a>
               </div>
               <div class="mega-column">
                 <h4>Text Tools</h4>
@@ -108,65 +111,216 @@
 
 <main class="converter-wrapper">
 
-  <!-- PAGE HEADER -->
-  <div class="converter-header">
-    <h1>GPA to Percentage Converter</h1>
-    <p>Convert your GPA into percentage instantly using different grading scales.</p>
+ 
+<div class="page-wrap">
+
+  <!-- HEADER -->
+  <div class="page-header">
+    <span class="eyebrow">Nepal Education Tools</span>
+    <h1>GPA ↔ Percentage Converter</h1>
+    <p>Convert GPA to percentage and percentage to GPA for NEB (SEE, Grade 11–12), TU Semester, and global 4.0/10.0 scales.</p>
   </div>
 
-  <!-- CALCULATOR CARD -->
-  <div class="converter-card">
-
-    <div class="input-group">
-      <label for="gpaInput">Enter GPA*</label>
-      <input type="number" id="gpaInput" placeholder="e.g. 3.5" step="0.01">
-      <small class="error" id="gpaError"></small>
-    </div>
-
-    <div class="input-group">
-      <label for="scaleSelect">Select GPA Scale*</label>
-      <select id="scaleSelect">
-        <option value="">-- Select Scale --</option>
-        <option value="4">4.0 Scale</option>
-        <option value="5">5.0 Scale</option>
-        <option value="10">10.0 Scale</option>
-      </select>
-      <small class="error" id="scaleError"></small>
-    </div>
-
-    <button class="btn-primary" id="convertBtn">Convert</button>
-
-    <!-- RESULT -->
-    <div class="result-box" id="resultBox">
-      <h3>Your Percentage</h3>
-      <div class="result-value" id="resultValue">0%</div>
-    </div>
-
+  <!-- MODE TABS -->
+  <div class="mode-tabs">
+    <button class="mode-tab active" onclick="switchMode('gpa2pct')">GPA → Percentage</button>
+    <button class="mode-tab" onclick="switchMode('pct2gpa')">Percentage → GPA</button>
   </div>
+
+  <!-- ===================== GPA → PERCENTAGE ===================== -->
+  <div class="converter-panel active" id="panel-gpa2pct">
+    <div class="calc-card">
+      <h2>GPA to Percentage <span class="badge">Converter</span></h2>
+
+      <!-- System Pills -->
+      <div class="system-pills" id="g2p-pills">
+        <button class="sys-pill active" data-sys="neb" onclick="g2pSelectSystem(this)">NEB / SEE / 11–12</button>
+        <button class="sys-pill" data-sys="tu" onclick="g2pSelectSystem(this)">TU Semester</button>
+        <button class="sys-pill" data-sys="4" onclick="g2pSelectSystem(this)">4.0 Scale (Generic)</button>
+        <button class="sys-pill" data-sys="10" onclick="g2pSelectSystem(this)">10.0 Scale (India/Global)</button>
+        <button class="sys-pill" data-sys="5" onclick="g2pSelectSystem(this)">5.0 Scale</button>
+      </div>
+
+      <div class="field-row">
+        <div class="field-group">
+          <label>Your GPA</label>
+          <input type="number" id="g2p-gpa" placeholder="e.g. 3.6" step="0.01" oninput="g2pConvert()">
+          <div class="error-msg" id="g2p-err"></div>
+        </div>
+        <div class="field-group" id="g2p-scale-wrap" style="display:none;">
+          <label>Max GPA Scale</label>
+          <input type="number" id="g2p-scale" placeholder="e.g. 4.0" step="0.1" value="4.0" oninput="g2pConvert()">
+        </div>
+      </div>
+
+      <button class="convert-btn" onclick="g2pConvert()">Convert →</button>
+
+      <div class="result-strip" id="g2p-result">
+        <div>
+          <div class="result-label">Percentage</div>
+          <div class="result-big" id="g2p-pct">—</div>
+          <div class="result-sub" id="g2p-sub"></div>
+        </div>
+        <div class="result-grade-badge" id="g2p-badge" style="display:none;">
+          <div class="grade-letter" id="g2p-grade">A+</div>
+          <div class="grade-desc" id="g2p-gradeDesc">Outstanding</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- NEB Reference Table -->
+    <div class="calc-card ref-section" id="neb-ref">
+      <h3>NEB Grading Scale (SEE / Grade 11–12)</h3>
+      <div class="ref-table-wrap">
+        <table class="ref-table">
+          <thead>
+            <tr><th>Grade</th><th>GPA Range</th><th>Percentage</th><th>Descriptor</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><span class="grade-chip chip-aplus">A+</span></td><td>3.60 – 4.00</td><td>90 – 100%</td><td>Outstanding</td></tr>
+            <tr><td><span class="grade-chip chip-a">A</span></td><td>3.20 – 3.59</td><td>80 – 89%</td><td>Excellent</td></tr>
+            <tr><td><span class="grade-chip chip-bplus">B+</span></td><td>2.80 – 3.19</td><td>70 – 79%</td><td>Very Good</td></tr>
+            <tr><td><span class="grade-chip chip-b">B</span></td><td>2.40 – 2.79</td><td>60 – 69%</td><td>Good</td></tr>
+            <tr><td><span class="grade-chip chip-cplus">C+</span></td><td>2.00 – 2.39</td><td>50 – 59%</td><td>Satisfactory</td></tr>
+            <tr><td><span class="grade-chip chip-c">C</span></td><td>1.60 – 1.99</td><td>40 – 49%</td><td>Acceptable</td></tr>
+            <tr><td><span class="grade-chip chip-d">D</span></td><td>1.20 – 1.59</td><td>30 – 39%</td><td>Partially Acceptable</td></tr>
+            <tr><td><span class="grade-chip chip-e">E</span></td><td>Below 1.20</td><td>Below 30%</td><td>Not Acceptable</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- TU Reference Table -->
+    <div class="calc-card ref-section" id="tu-ref" style="display:none;">
+      <h3>TU Semester Grading Scale</h3>
+      <div class="ref-table-wrap">
+        <table class="ref-table">
+          <thead>
+            <tr><th>Grade</th><th>GPA</th><th>CGPA</th><th>Percentage</th><th>Division</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><span class="grade-chip chip-aplus">A</span></td><td>4.0</td><td>4.00</td><td>90%+</td><td>Distinction</td></tr>
+            <tr><td><span class="grade-chip chip-a">A−</span></td><td>3.7</td><td>3.70 – 3.99</td><td>80 – 89%</td><td>Very Good</td></tr>
+            <tr><td><span class="grade-chip chip-bplus">B+</span></td><td>3.3</td><td>3.30 – 3.69</td><td>70 – 79%</td><td>First Division</td></tr>
+            <tr><td><span class="grade-chip chip-b">B</span></td><td>3.0</td><td>3.00 – 3.29</td><td>60 – 69%</td><td>Second Division</td></tr>
+            <tr><td><span class="grade-chip chip-cplus">B−</span></td><td>2.7</td><td>2.70 – 2.99</td><td>50 – 59%</td><td>Pass in Paper</td></tr>
+            <tr><td><span class="grade-chip chip-f">F</span></td><td>—</td><td>Below 2.70</td><td>Below 50%</td><td>Fail</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:12px;color:var(--text-dim);margin-top:10px;">* Pass requires ≥50% External Exam (GPA 2.7) and minimum CGPA 3.0 (60%) per TU Semester rules.</p>
+    </div>
+  </div>
+
+
+  <!-- ===================== PERCENTAGE → GPA ===================== -->
+  <div class="converter-panel" id="panel-pct2gpa">
+    <div class="calc-card">
+      <h2>Percentage to GPA <span class="badge">Converter</span></h2>
+
+      <div class="system-pills" id="p2g-pills">
+        <button class="sys-pill active" data-sys="neb" onclick="p2gSelectSystem(this)">NEB / SEE / 11–12</button>
+        <button class="sys-pill" data-sys="tu" onclick="p2gSelectSystem(this)">TU Semester</button>
+        <button class="sys-pill" data-sys="4" onclick="p2gSelectSystem(this)">4.0 Scale (Generic)</button>
+        <button class="sys-pill" data-sys="10" onclick="p2gSelectSystem(this)">10.0 Scale</button>
+        <button class="sys-pill" data-sys="5" onclick="p2gSelectSystem(this)">5.0 Scale</button>
+      </div>
+
+      <div class="field-row">
+        <div class="field-group">
+          <label>Your Percentage (%)</label>
+          <input type="number" id="p2g-pct" placeholder="e.g. 85" step="0.01" oninput="p2gConvert()">
+          <div class="error-msg" id="p2g-err"></div>
+        </div>
+        <div class="field-group" id="p2g-scale-wrap" style="display:none;">
+          <label>Max GPA Scale</label>
+          <input type="number" id="p2g-scale" placeholder="e.g. 4.0" step="0.1" value="4.0" oninput="p2gConvert()">
+        </div>
+      </div>
+
+      <button class="convert-btn" onclick="p2gConvert()">Convert →</button>
+
+      <div class="result-strip" id="p2g-result">
+        <div>
+          <div class="result-label">GPA</div>
+          <div class="result-big" id="p2g-gpa">—</div>
+          <div class="result-sub" id="p2g-sub"></div>
+        </div>
+        <div class="result-grade-badge" id="p2g-badge" style="display:none;">
+          <div class="grade-letter" id="p2g-grade">A+</div>
+          <div class="grade-desc" id="p2g-gradeDesc">Outstanding</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Reference tables same as above (reused) -->
+    <div class="calc-card ref-section" id="p2g-neb-ref">
+      <h3>NEB Grading Scale (SEE / Grade 11–12)</h3>
+      <div class="ref-table-wrap">
+        <table class="ref-table">
+          <thead>
+            <tr><th>Grade</th><th>GPA Range</th><th>Percentage</th><th>Descriptor</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><span class="grade-chip chip-aplus">A+</span></td><td>3.60 – 4.00</td><td>90 – 100%</td><td>Outstanding</td></tr>
+            <tr><td><span class="grade-chip chip-a">A</span></td><td>3.20 – 3.59</td><td>80 – 89%</td><td>Excellent</td></tr>
+            <tr><td><span class="grade-chip chip-bplus">B+</span></td><td>2.80 – 3.19</td><td>70 – 79%</td><td>Very Good</td></tr>
+            <tr><td><span class="grade-chip chip-b">B</span></td><td>2.40 – 2.79</td><td>60 – 69%</td><td>Good</td></tr>
+            <tr><td><span class="grade-chip chip-cplus">C+</span></td><td>2.00 – 2.39</td><td>50 – 59%</td><td>Satisfactory</td></tr>
+            <tr><td><span class="grade-chip chip-c">C</span></td><td>1.60 – 1.99</td><td>40 – 49%</td><td>Acceptable</td></tr>
+            <tr><td><span class="grade-chip chip-d">D</span></td><td>1.20 – 1.59</td><td>30 – 39%</td><td>Partially Acceptable</td></tr>
+            <tr><td><span class="grade-chip chip-e">E</span></td><td>Below 1.20</td><td>Below 30%</td><td>Not Acceptable</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="calc-card ref-section" id="p2g-tu-ref" style="display:none;">
+      <h3>TU Semester Grading Scale</h3>
+      <div class="ref-table-wrap">
+        <table class="ref-table">
+          <thead>
+            <tr><th>Grade</th><th>GPA</th><th>CGPA</th><th>Percentage</th><th>Division</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><span class="grade-chip chip-aplus">A</span></td><td>4.0</td><td>4.00</td><td>90%+</td><td>Distinction</td></tr>
+            <tr><td><span class="grade-chip chip-a">A−</span></td><td>3.7</td><td>3.70 – 3.99</td><td>80 – 89%</td><td>Very Good</td></tr>
+            <tr><td><span class="grade-chip chip-bplus">B+</span></td><td>3.3</td><td>3.30 – 3.69</td><td>70 – 79%</td><td>First Division</td></tr>
+            <tr><td><span class="grade-chip chip-b">B</span></td><td>3.0</td><td>3.00 – 3.29</td><td>60 – 69%</td><td>Second Division</td></tr>
+            <tr><td><span class="grade-chip chip-cplus">B−</span></td><td>2.7</td><td>2.70 – 2.99</td><td>50 – 59%</td><td>Pass in Paper</td></tr>
+            <tr><td><span class="grade-chip chip-f">F</span></td><td>—</td><td>Below 2.70</td><td>Below 50%</td><td>Fail</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
 
   <!-- SEO CONTENT -->
-  <section class="seo-content">
-    <h2>How to Convert GPA to Percentage?</h2>
-    <p>
-      Converting GPA to percentage depends on your grading scale. 
-      The general formula used is:
-    </p>
+  <div class="seo-section">
+    <h2>How to Convert GPA to Percentage in Nepal?</h2>
+    <p>Nepal uses multiple grading systems depending on the institution and level of study. The two most common are the <strong>NEB 4.0 GPA system</strong> (used for SEE, Grade 11 & 12) and the <strong>TU Semester system</strong> (used by Tribhuvan University for bachelor's and master's programs).</p>
 
-    <div class="formula-box">
-      Percentage = (GPA ÷ Maximum GPA Scale) × 100
-    </div>
+    <h3>NEB / SEE Formula</h3>
+    <div class="formula-box">Percentage = GPA × 25 &nbsp;(for NEB 4.0 scale)</div>
+    <p>For example, 3.6 GPA × 25 = 90% (A+ / Outstanding). This is specific to the NEB letter grading system introduced in 2015.</p>
 
-    <h3>Examples</h3>
+    <h3>TU Semester System</h3>
+    <p>Tribhuvan University uses a 4.0 GPA scale for its semester system. The minimum pass requirements are: ≥50% in External Exam (Grade Point 2.7), pass in individual paper, and a minimum CGPA of 3.0 (60%) overall.</p>
+    <div class="formula-box">Percentage ≈ (GPA ÷ 4.0) × 100 &nbsp;(approximate for TU)</div>
+
+    <h3>International / Generic Scales</h3>
     <ul>
-      <li>3.5 GPA on 4.0 scale = 87.5%</li>
-      <li>8.2 GPA on 10.0 scale = 82%</li>
-      <li>4.5 GPA on 5.0 scale = 90%</li>
+      <li>4.0 Scale (US): GPA ÷ 4.0 × 100 = Percentage</li>
+      <li>10.0 Scale (India/Global): GPA × 9.5 or GPA ÷ 10 × 100</li>
+      <li>5.0 Scale: GPA ÷ 5.0 × 100 = Percentage</li>
     </ul>
 
-    <p>
-      Always confirm with your institution, as some universities may apply custom conversion formulas.
-    </p>
-  </section>
+    <p>Always verify with your specific institution, as some universities apply custom formulas for their grading policies.</p>
+  </div>
+
+</div><!-- /.page-wrap -->
+
 
 </main>
 
@@ -260,6 +414,196 @@
         </div>
       </div>
 </footer>
+
+
+<script>
+// ===================== DATA =====================
+
+const NEB_GRADES = [
+  { grade:'A+', desc:'Outstanding',         gpaMin:3.60, gpaMax:4.00, pctMin:90, pctMax:100 },
+  { grade:'A',  desc:'Excellent',           gpaMin:3.20, gpaMax:3.59, pctMin:80, pctMax:89  },
+  { grade:'B+', desc:'Very Good',           gpaMin:2.80, gpaMax:3.19, pctMin:70, pctMax:79  },
+  { grade:'B',  desc:'Good',                gpaMin:2.40, gpaMax:2.79, pctMin:60, pctMax:69  },
+  { grade:'C+', desc:'Satisfactory',        gpaMin:2.00, gpaMax:2.39, pctMin:50, pctMax:59  },
+  { grade:'C',  desc:'Acceptable',          gpaMin:1.60, gpaMax:1.99, pctMin:40, pctMax:49  },
+  { grade:'D',  desc:'Partially Acceptable',gpaMin:1.20, gpaMax:1.59, pctMin:30, pctMax:39  },
+  { grade:'E',  desc:'Not Acceptable',      gpaMin:0,    gpaMax:1.19, pctMin:0,  pctMax:29  },
+];
+
+const TU_GRADES = [
+  { grade:'A',  desc:'Distinction',   gpaMin:4.0,  gpaMax:4.0,  pctMin:90, pctMax:100 },
+  { grade:'A−', desc:'Very Good',     gpaMin:3.7,  gpaMax:3.99, pctMin:80, pctMax:89  },
+  { grade:'B+', desc:'First Division',gpaMin:3.3,  gpaMax:3.69, pctMin:70, pctMax:79  },
+  { grade:'B',  desc:'Second Division',gpaMin:3.0, gpaMax:3.29, pctMin:60, pctMax:69  },
+  { grade:'B−', desc:'Pass in Paper', gpaMin:2.7,  gpaMax:2.99, pctMin:50, pctMax:59  },
+  { grade:'F',  desc:'Fail',          gpaMin:0,    gpaMax:2.69, pctMin:0,  pctMax:49  },
+];
+
+// ===================== STATE =====================
+let g2pSystem = 'neb';
+let p2gSystem = 'neb';
+
+// ===================== MODE SWITCH =====================
+function switchMode(mode) {
+  document.querySelectorAll('.converter-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.mode-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('panel-' + mode).classList.add('active');
+  event.target.classList.add('active');
+}
+
+// ===================== GPA → PCT =====================
+function g2pSelectSystem(btn) {
+  document.querySelectorAll('#g2p-pills .sys-pill').forEach(p => p.classList.remove('active'));
+  btn.classList.add('active');
+  g2pSystem = btn.dataset.sys;
+
+  // Show/hide scale input
+  const scaleWrap = document.getElementById('g2p-scale-wrap');
+  scaleWrap.style.display = (g2pSystem === '4' || g2pSystem === '10' || g2pSystem === '5') ? 'flex' : 'none';
+  if (g2pSystem === '4') document.getElementById('g2p-scale').value = '4.0';
+  if (g2pSystem === '10') document.getElementById('g2p-scale').value = '10.0';
+  if (g2pSystem === '5') document.getElementById('g2p-scale').value = '5.0';
+
+  // Show/hide ref tables
+  document.getElementById('neb-ref').style.display = (g2pSystem === 'neb') ? 'block' : 'none';
+  document.getElementById('tu-ref').style.display  = (g2pSystem === 'tu')  ? 'block' : 'none';
+
+  // Clear result
+  document.getElementById('g2p-result').classList.remove('show');
+  g2pConvert();
+}
+
+function g2pConvert() {
+  const gpaInput = parseFloat(document.getElementById('g2p-gpa').value);
+  const errEl = document.getElementById('g2p-err');
+  const resultEl = document.getElementById('g2p-result');
+  errEl.textContent = '';
+
+  if (isNaN(gpaInput) || document.getElementById('g2p-gpa').value === '') {
+    resultEl.classList.remove('show'); return;
+  }
+
+  let pct, gradeInfo = null;
+
+  if (g2pSystem === 'neb') {
+    if (gpaInput < 0 || gpaInput > 4) { errEl.textContent = 'Enter GPA between 0 and 4.0'; return; }
+    pct = gpaInput * 25;
+    gradeInfo = NEB_GRADES.find(g => gpaInput >= g.gpaMin && gpaInput <= g.gpaMax);
+    if (!gradeInfo) gradeInfo = NEB_GRADES[NEB_GRADES.length - 1];
+  } else if (g2pSystem === 'tu') {
+    if (gpaInput < 0 || gpaInput > 4) { errEl.textContent = 'Enter GPA between 0 and 4.0'; return; }
+    gradeInfo = TU_GRADES.find(g => gpaInput >= g.gpaMin && gpaInput <= g.gpaMax);
+    if (!gradeInfo) gradeInfo = TU_GRADES[TU_GRADES.length - 1];
+    if (gpaInput === 4.0) {
+      // Special: 4.0 = Distinction = 90%+ (display differently)
+      document.getElementById('g2p-pct').textContent = '90%+';
+      document.getElementById('g2p-sub').textContent = 'TU Semester Scale (GPA 4.0 = Distinction)';
+      const badge = document.getElementById('g2p-badge');
+      badge.style.display = 'block';
+      document.getElementById('g2p-grade').textContent = gradeInfo.grade;
+      document.getElementById('g2p-gradeDesc').textContent = gradeInfo.desc;
+      resultEl.classList.add('show');
+      return;
+    }
+    pct = (gpaInput / 4.4) * 100;
+  } else {
+    const scale = parseFloat(document.getElementById('g2p-scale').value);
+    if (isNaN(scale) || scale <= 0) { errEl.textContent = 'Enter a valid scale'; return; }
+    if (gpaInput < 0 || gpaInput > scale) { errEl.textContent = `GPA must be between 0 and ${scale}`; return; }
+    pct = (gpaInput / scale) * 100;
+  }
+
+  pct = Math.min(100, pct);
+
+  document.getElementById('g2p-pct').textContent = pct.toFixed(2) + '%';
+  document.getElementById('g2p-sub').textContent = g2pSystem === 'neb' ? 'NEB Scale (GPA × 25)' :
+    g2pSystem === 'tu' ? 'TU Semester Scale (GPA × 100 ÷ 4.4)' : 'Generic Formula';
+
+  const badge = document.getElementById('g2p-badge');
+  if (gradeInfo) {
+    badge.style.display = 'block';
+    document.getElementById('g2p-grade').textContent = gradeInfo.grade;
+    document.getElementById('g2p-gradeDesc').textContent = gradeInfo.desc;
+  } else {
+    badge.style.display = 'none';
+  }
+
+  resultEl.classList.add('show');
+}
+
+// ===================== PCT → GPA =====================
+function p2gSelectSystem(btn) {
+  document.querySelectorAll('#p2g-pills .sys-pill').forEach(p => p.classList.remove('active'));
+  btn.classList.add('active');
+  p2gSystem = btn.dataset.sys;
+
+  const scaleWrap = document.getElementById('p2g-scale-wrap');
+  scaleWrap.style.display = (p2gSystem === '4' || p2gSystem === '10' || p2gSystem === '5') ? 'flex' : 'none';
+  if (p2gSystem === '4') document.getElementById('p2g-scale').value = '4.0';
+  if (p2gSystem === '10') document.getElementById('p2g-scale').value = '10.0';
+  if (p2gSystem === '5') document.getElementById('p2g-scale').value = '5.0';
+
+  document.getElementById('p2g-neb-ref').style.display = (p2gSystem === 'neb') ? 'block' : 'none';
+  document.getElementById('p2g-tu-ref').style.display  = (p2gSystem === 'tu')  ? 'block' : 'none';
+
+  document.getElementById('p2g-result').classList.remove('show');
+  p2gConvert();
+}
+
+function p2gConvert() {
+  const pctInput = parseFloat(document.getElementById('p2g-pct').value);
+  const errEl = document.getElementById('p2g-err');
+  const resultEl = document.getElementById('p2g-result');
+  errEl.textContent = '';
+
+  if (isNaN(pctInput) || document.getElementById('p2g-pct').value === '') {
+    resultEl.classList.remove('show'); return;
+  }
+
+  if (pctInput < 0 || pctInput > 100) { errEl.textContent = 'Percentage must be between 0 and 100'; return; }
+
+  let gpa, gradeInfo = null;
+
+  if (p2gSystem === 'neb') {
+    gpa = pctInput / 25;
+    gpa = Math.min(4.0, gpa);
+    gradeInfo = NEB_GRADES.find(g => pctInput >= g.pctMin && pctInput <= g.pctMax);
+    if (!gradeInfo) gradeInfo = NEB_GRADES[NEB_GRADES.length - 1];
+  } else if (p2gSystem === 'tu') {
+    if (pctInput >= 90) {
+      gpa = 4.0;
+    } else {
+      gpa = (pctInput / 100) * 4.4;
+      gpa = Math.min(3.99, gpa); // below 90% can't reach 4.0
+    }
+    gradeInfo = TU_GRADES.find(g => pctInput >= g.pctMin && pctInput <= g.pctMax);
+    if (!gradeInfo) gradeInfo = TU_GRADES[TU_GRADES.length - 1];
+  } else {
+    const scale = parseFloat(document.getElementById('p2g-scale').value);
+    if (isNaN(scale) || scale <= 0) { errEl.textContent = 'Enter a valid scale'; return; }
+    gpa = (pctInput / 100) * scale;
+  }
+
+  document.getElementById('p2g-gpa').textContent = gpa.toFixed(2);
+  document.getElementById('p2g-sub').textContent = p2gSystem === 'neb' ? 'NEB Scale (Percentage ÷ 25)' :
+    p2gSystem === 'tu' ? 'TU Semester Scale (PCT × 4.4 ÷ 100)' : 'Generic Formula';
+
+  const badge = document.getElementById('p2g-badge');
+  if (gradeInfo) {
+    badge.style.display = 'block';
+    document.getElementById('p2g-grade').textContent = gradeInfo.grade;
+    document.getElementById('p2g-gradeDesc').textContent = gradeInfo.desc;
+  } else {
+    badge.style.display = 'none';
+  }
+
+  resultEl.classList.add('show');
+}
+
+// Init
+g2pSelectSystem(document.querySelector('#g2p-pills .sys-pill.active'));
+p2gSelectSystem(document.querySelector('#p2g-pills .sys-pill.active'));
+</script>
 <script src="/assets/js/gpaConverter.js"></script>
 </body>
 </html>
