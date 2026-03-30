@@ -1,16 +1,133 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
-  <sitemap>
-    <loc>https://raiaakriti.com.np/sitemap-categories.xml</loc>
-  </sitemap>
+  <!-- HOMEPAGE -->
+  <url>
+    <loc>https://raiaakriti.com.np/</loc>
+    <priority>1.0</priority>
+  </url>
 
-  <sitemap>
-    <loc>https://raiaakriti.com.np/sitemap-tools.xml</loc>
-  </sitemap>
+  <!-- PAGES -->
+  <url>
+    <loc>https://raiaakriti.com.np/pages/about-us.html</loc>
+    <priority>0.8</priority>
+  </url>
 
-  <sitemap>
-    <loc>https://raiaakriti.com.np/sitemap-pages.xml</loc>
-  </sitemap>
+  <url>
+    <loc>https://raiaakriti.com.np/pages/all-tools.html</loc>
+    <priority>0.9</priority>
+  </url>
 
-</sitemapindex>
+  <url>
+    <loc>https://raiaakriti.com.np/pages/category.html</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://raiaakriti.com.np/pages/contact.html</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://raiaakriti.com.np/pages/cookies-policy.html</loc>
+    <priority>0.5</priority>
+  </url>
+
+  <url>
+    <loc>https://raiaakriti.com.np/pages/faq.html</loc>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://raiaakriti.com.np/pages/privacy-policy.html</loc>
+    <priority>0.5</priority>
+  </url>
+
+  <url>
+    <loc>https://raiaakriti.com.np/pages/terms-conditions.html</loc>
+    <priority>0.5</priority>
+  </url>
+
+  <!-- CATEGORY -->
+  <url>
+    <loc>https://raiaakriti.com.np/category/calculator-category.html</loc>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://raiaakriti.com.np/category/converter-category.html</loc>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://raiaakriti.com.np/category/student-category.html</loc>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://raiaakriti.com.np/category/text-category.html</loc>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- FINANCIAL CALCULATORS -->
+  <url>
+    <loc>https://raiaakriti.com.np/financial-calculators/emi-calculator.html</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://raiaakriti.com.np/financial-calculators/inflation-calculator.html</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- FITNESS CALCULATORS -->
+  <url>
+    <loc>https://raiaakriti.com.np/fitness-calculators/bmi-calculator.html</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- OTHER CALCULATORS -->
+  <url>
+    <loc>https://raiaakriti.com.np/other-calculators/age-calculator.html</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- STUDENT TOOLS -->
+  <url>
+    <loc>https://raiaakriti.com.np/student-tools/gpa-to-percentage.html</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- TEXT TOOLS -->
+  <url>
+    <loc>https://raiaakriti.com.np/text-tools/case-converter.html</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://raiaakriti.com.np/text-tools/word-counter.html</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- UNIT CONVERTERS -->
+  <url>
+    <loc>https://raiaakriti.com.np/unit-converters/1-bigha-in-square-feet.html</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://raiaakriti.com.np/unit-converters/land-converter.html</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://raiaakriti.com.np/unit-converters/length-converter.html</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://raiaakriti.com.np/unit-converters/weight-converter.html</loc>
+    <priority>0.8</priority>
+  </url>
+
+</urlset>
