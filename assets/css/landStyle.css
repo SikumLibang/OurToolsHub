@@ -1,0 +1,295 @@
+/* <style> */
+  /* ── Layout (mirrors .emi-layout pattern) ── */
+  .tool-page { padding: 32px 20px 64px; }
+
+  .tool-layout {
+    display: grid;
+    grid-template-columns: 1fr 280px;
+    gap: 28px;
+    max-width: 1100px;
+    margin: 0 auto;
+    align-items: start;
+  }
+
+  @media (max-width: 860px) {
+    .tool-layout { grid-template-columns: 1fr; }
+    .tool-sidebar { order: -1; }
+  }
+
+  /* ── Converter card internals ── */
+  .lc-converter {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .lc-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+
+  @media (max-width: 560px) {
+    .lc-row { grid-template-columns: 1fr; }
+  }
+
+  .lc-field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .lc-field label {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+    color: var(--text-muted, #6b7280);
+  }
+
+  .lc-input-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+  .lc-input-wrap input {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1.5px solid var(--border-color, #d1d5db);
+    border-radius: 8px;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--text-primary, #111827);
+    background: var(--input-bg, #fff);
+    outline: none;
+    transition: border-color 0.18s, box-shadow 0.18s;
+    -moz-appearance: textfield;
+  }
+
+  .lc-input-wrap input::-webkit-outer-spin-button,
+  .lc-input-wrap input::-webkit-inner-spin-button { -webkit-appearance: none; }
+
+  .lc-input-wrap input:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37,99,235,0.12);
+  }
+
+  .lc-result-wrap input {
+    color: #2563eb;
+    background: #eff6ff;
+    border-color: #bfdbfe;
+    cursor: default;
+    padding-right: 88px;
+  }
+
+  .lc-copy-btn {
+    position: absolute;
+    right: 8px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    background: #2563eb;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 5px 10px;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.15s;
+  }
+
+  .lc-copy-btn:hover { background: #1d4ed8; }
+  .lc-copy-btn.copied { background: #16a34a; }
+
+  .lc-select-field select {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1.5px solid var(--border-color, #d1d5db);
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-primary, #111827);
+    background: var(--input-bg, #fff);
+    outline: none;
+    cursor: pointer;
+    transition: border-color 0.18s, box-shadow 0.18s;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M2 4l4 4 4-4' stroke='%236b7280' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    padding-right: 32px;
+  }
+
+  .lc-select-field select:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37,99,235,0.12);
+  }
+
+  /* Swap row */
+  .lc-swap-row {
+    display: flex;
+    justify-content: center;
+    margin: 4px 0 12px;
+  }
+
+  .lc-swap-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: #eff6ff;
+    border: 1.5px solid #bfdbfe;
+    border-radius: 20px;
+    padding: 7px 18px;
+    color: #2563eb;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.18s;
+  }
+
+  .lc-swap-btn:hover {
+    background: #2563eb;
+    color: #fff;
+    border-color: #2563eb;
+  }
+
+  .lc-swap-btn svg { transition: transform 0.3s; }
+  .lc-swap-btn:hover svg { transform: rotate(180deg); }
+
+  /* Result bar */
+  .lc-result-bar {
+    margin-top: 8px;
+    background: linear-gradient(135deg, #1d4ed8 0%, #2563eb 100%);
+    border-radius: 10px;
+    padding: 16px 20px;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1.5;
+    letter-spacing: 0.1px;
+  }
+
+  .lc-result-bar strong {
+    font-size: 22px;
+    font-weight: 700;
+    display: block;
+    margin-bottom: 2px;
+    letter-spacing: -0.3px;
+  }
+
+  /* Breakdown */
+  .lc-breakdown {
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border-color, #e5e7eb);
+  }
+
+  .lc-breakdown-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-muted, #6b7280);
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    margin-bottom: 14px;
+  }
+
+  .lc-breakdown-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(145px, 1fr));
+    gap: 10px;
+  }
+
+  .lc-bd-item {
+    background: #f8faff;
+    border: 1px solid #dbeafe;
+    border-radius: 8px;
+    padding: 12px 14px;
+    transition: border-color 0.15s, background 0.15s;
+  }
+
+  .lc-bd-item:hover { background: #eff6ff; border-color: #93c5fd; }
+
+  .lc-bd-item .lc-bd-unit {
+    font-size: 11px;
+    font-weight: 600;
+    color: #2563eb;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+  }
+
+  .lc-bd-item .lc-bd-val {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--text-primary, #111827);
+    letter-spacing: -0.3px;
+    word-break: break-all;
+  }
+
+  /* Reference table */
+  .lc-table-wrap { overflow-x: auto; }
+
+  .lc-ref-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+  }
+
+  .lc-ref-table th {
+    background: #eff6ff;
+    color: #1d4ed8;
+    font-weight: 600;
+    padding: 10px 14px;
+    text-align: left;
+    border-bottom: 2px solid #bfdbfe;
+    white-space: nowrap;
+  }
+
+  .lc-ref-table td {
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--border-color, #e5e7eb);
+    color: var(--text-primary, #111827);
+  }
+
+  .lc-ref-table tr:last-child td { border-bottom: none; }
+
+  .lc-ref-table tr:hover td { background: #f8faff; }
+
+  .lc-ref-table td:first-child { font-weight: 600; }
+
+  .lc-section-row td {
+    background: #f0f9ff;
+    color: #0369a1;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 7px 14px;
+  }
+
+  .lc-section-row:hover td { background: #f0f9ff !important; }
+
+  /* Toast */
+  .lc-toast {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    background: #1d4ed8;
+    color: #fff;
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    opacity: 0;
+    transform: translateY(6px);
+    transition: all 0.22s ease;
+    pointer-events: none;
+    z-index: 9999;
+    box-shadow: 0 4px 16px rgba(37,99,235,0.3);
+  }
+
+  .lc-toast.show { opacity: 1; transform: translateY(0); }
+/* </style> */
